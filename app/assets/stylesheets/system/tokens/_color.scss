@@ -1,0 +1,31 @@
+@function system-color($base, $shade: 500) {
+  $color: map-get(map-get($system-colors, $base), $shade);
+  @return $color;
+}
+
+$system-colors: (
+  primary: (
+    100: #BBDEFB,
+    200: #90CAF9,
+    300: #64B5F6,
+    400: #42A5F5,
+    500: #2196F3,
+    600: #1E88E5,
+    700: #1976D2,
+    800: #1565C0,
+    900: #0D47A1,
+  ),
+  gray: (
+    white: #ffffff,
+    100: #cfd8dc,
+    200: #b0bec5,
+    300: #90a4ae,
+    400: #78909c,
+    500: #607d8b,
+    600: #546e7a,
+    700: #455a64,
+    800: #37474f,
+    900: #263238,
+    black: #000000,
+  )
+);

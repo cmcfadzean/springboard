@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>AppStrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +11,15 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <%= link_to user.email, edit_user_registration_path, :class => '#' %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => '#'  %>
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path, :class => '#'  %>
+      <%= link_to "Login", new_user_session_path, :class => '#'  %>
+    <% end %>
     <%= yield %>
+    <p id="notice" class="system-notice <%= notice ? "system-notice--show" : ""%>"><%= notice %></p>
+    <p id="alert" class="system-alert <%= alert ? "system-alert--show" : ""%>"><%= alert %></p>
   </body>
 </html>
