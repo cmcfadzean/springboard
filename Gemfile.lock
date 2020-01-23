@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/jensljungblad/components.git
+  revision: 12d33228b188dd2e1e404809a67628ccc0ed0a7f
+  specs:
+    components (0.1.0)
+      rails (>= 5.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -208,6 +215,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  components!
   devise
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
