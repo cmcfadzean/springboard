@@ -1,13 +1,23 @@
-@import "gram/vendor/reboot";
+/***********************************************/
+/* Vendor Styles */
+/***********************************************/
+@import "system/vendor/reboot";
 
-// Design Tokens
-@import "gram/tokens/border";
-@import "gram/tokens/color";
-@import "gram/tokens/font_size";
-@import "gram/tokens/spacing";
+/***********************************************/
+/* Design Tokens */
+/***********************************************/
+@import "system/tokens/border";
+@import "system/tokens/color";
+@import "system/tokens/font_size";
+@import "system/tokens/spacing";
 
-// Core Styles
-@import "gram/core/typography";
+/***********************************************/
+/* Core Styles */
+/***********************************************/
+@import "system/core/mixins";
+@import "system/core/typography";
 
-// Components
-@import "gram/components/notice";
+/***********************************************/
+/* Components */
+/***********************************************/
+@import "../../components/**/*"

@@ -19,7 +19,7 @@
       <%= link_to "Login", new_user_session_path, :class => '#'  %>
     <% end %>
     <%= yield %>
-    <p id="notice" class="system-notice <%= notice ? "system-notice--show" : ""%>"><%= notice %></p>
-    <p id="alert" class="system-alert <%= alert ? "system-alert--show" : ""%>"><%= alert %></p>
+    <%= component "alert", id: "notice", message: notice %>
+    <%= component "alert", id: "alert", message: alert %>
   </body>
 </html>
