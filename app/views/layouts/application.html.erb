@@ -12,7 +12,7 @@
 
   <body>
     <% if user_signed_in? %>
-      <%= link_to user.email, edit_user_registration_path, :class => '#' %>
+      <%= link_to current_user.email, edit_user_registration_path, :class => '#' %>
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => '#'  %>
     <% else %>
       <%= link_to "Sign up", new_user_registration_path, :class => '#'  %>
