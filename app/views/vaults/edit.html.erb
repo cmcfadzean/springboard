@@ -1,0 +1,4 @@
+<div class="vault-heading media align-items-end">
+  <div class="media-body"><%= render 'form' %></div>
+</div>
+<%= render @vault.links.order(created_at: :desc) %>

@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>AppStrap</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <% if user_signed_in? %>
-      <%= link_to current_user.email, edit_user_registration_path, :class => '#' %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => '#'  %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path, :class => '#'  %>
-      <%= link_to "Login", new_user_session_path, :class => '#'  %>
+<head>
+  <title>LinkVaults</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <!-- Microlink SDK Vanilla/UMD bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/react@16/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/styled-components@4/dist/styled-components.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@microlink/vanilla@4.0.0-alpha.3/dist/microlink.min.js"></script>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= component "sidebar" do %>
+    <%= component "nav" do %>
+      <% @vaults.each do |vault| %>
+        <%= component "link", link: vault, count: vault.links.count do %>
+          <%= vault.name %>
+        <% end %>
+      <% end %>
+      <%= component "link", link: new_vault_path do %>
+        New Collection...
+      <% end %>
     <% end %>
+    <% if user_signed_in? %>
+      <%= link_to current_user.email, edit_user_registration_path, class: "link" %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "link" %>
+    <% end %>
+  <% end %>
+  <%= component "stage" do %>
     <%= yield %>
-    <%= component "alert", id: "notice", message: notice %>
-    <%= component "alert", id: "alert", message: alert %>
-  </body>
+  <% end %>
+  <p id="notice" class="notice <%= notice ? "notice-show" : ""%>"><%= notice %></p>
+  <p id="alert" class="alert <%= alert ? "alert-show" : ""%>"><%= alert %></p>
+  <!-- Call microlink to replace links with cards previews -->
+  <script>
+    document.addEventListener("turbolinks:load", function (event) {
+      microlink('.vault-link__preview')
+    })
+  </script>
+</body>
 </html>
