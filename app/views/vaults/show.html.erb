@@ -1,26 +1,15 @@
-<div class="vault-heading media align-items-end">
-  <h1 class="vault-heading__title media-body"><%= @vault.name %></h1>
-  <%= link_to "Edit", edit_vault_path(@vault), class: "vault-heading__link" %>
-  <%= link_to "Delete", @vault, method: :delete, data: { confirm: 'Are you sure?' }, class: "vault-heading__link" %>
-</div>
+<%= link_to edit_vault_path(@vault), class: "vault-heading__link" do %>
+  <h1><%= @vault.name %></h1>
+<% end %>
 
 <% if @vault.links.count != 0 %>
   <%= render @vault.links.order(created_at: :desc) %>
 <% else %>
-  Nothing
+  <%= component "null" do %>
+    <%= image_tag("items.png", class: "")%>
+  <% end %>
 <% end %>
 
-<a href="#" class="vault-link__add" data-toggle="modal" data-target="#linksModal">
-  <i class="fas fa-plus"></i>
-</a>
+<%= link_to "Delete", @vault, method: :delete, data: { confirm: 'Are you sure?' }, class: "vault-heading__link" %>
 
-<!-- Modal -->
-<div class="modal fade" id="linksModal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <%= render "links/form" %>
-      </div>
-    </div>
-  </div>
-</div>
+<%= component "add" %>
