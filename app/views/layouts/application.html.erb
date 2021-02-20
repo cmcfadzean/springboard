@@ -14,6 +14,7 @@
 </head>
 <body>
   <%= component "sidebar" do %>
+    <%= component "logo" %>
     <%= component "nav" do %>
       <% @vaults.each do |vault| %>
         <%= component "link", link: vault, count: vault.links.count do %>
@@ -41,7 +42,7 @@
   <!-- Call microlink to replace links with cards previews -->
   <script>
     document.addEventListener("turbolinks:load", function (event) {
-      microlink('.vault-link__preview')
+      microlink('.item__preview')
     })
   </script>
 </body>

@@ -1,6 +1,3 @@
-<div class="vault-link media align-items-center">
-  <div class="media-body">
-    <a class="vault-link__preview" href="<%= link.link %>" target="_blank"></a>
-  </div>
-  <%= link_to vault_link_path(@vault, link.id), method: :delete, data: { confirm: "Are you sure?" }, class: "vault-link__action" do %><i class="fas fa-trash"></i><% end %>
-</div>
+<%= component "item", link: link.link do %>
+  <%= link_to vault_link_path(@vault, link.id), method: :delete, data: { confirm: "Are you sure?" }, class: "item__delete" do %>Delete<% end %>
+<% end %>

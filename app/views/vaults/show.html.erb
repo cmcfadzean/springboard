@@ -1,3 +1,4 @@
+<%= component "add" %>
 <%= link_to edit_vault_path(@vault), class: "vault-heading__link" do %>
   <h1><%= @vault.name %></h1>
 <% end %>
@@ -9,7 +10,5 @@
     <%= image_tag("items.png", class: "")%>
   <% end %>
 <% end %>
-
+<hr>
 <%= link_to "Delete", @vault, method: :delete, data: { confirm: 'Are you sure?' }, class: "vault-heading__link" %>
-
-<%= component "add" %>
