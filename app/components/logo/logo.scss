@@ -1,6 +1,7 @@
 .logo {
   display: flex;
   align-items: center;
+  margin-bottom: system-spacing(xl);
   &__img {
     width: 40px;
     margin-right: system-spacing(xs);

@@ -1,6 +1,7 @@
 <%= link_to link.link, class: "link" do %>
-  <%= link %>
+  <div class="link__icon"></div>
+  <div class="link__text"><%= link %></div>
   <% if link.count %>
-    <%= link.count %>
+    <div class="link__count"><%= link.count %></div>
   <% end %>
 <% end %>

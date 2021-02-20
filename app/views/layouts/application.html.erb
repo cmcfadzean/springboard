@@ -18,18 +18,16 @@
     <%= component "nav" do %>
       <% @vaults.each do |vault| %>
         <%= component "link", link: vault, count: vault.links.count do %>
-          <i class="primary fas fa-square"></i>
           <%= vault.name %>
         <% end %>
       <% end %>
       <%= component "link", link: new_vault_path do %>
-        <i class="primary fas fa-square"></i>
         New Collection...
       <% end %>
     <% end %>
     <% if user_signed_in? %>
-      <%= link_to current_user.email, edit_user_registration_path, class: "link" %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "link" %>
+      <%= link_to current_user.email, edit_user_registration_path, class: "" %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "" %>
     <% end %>
   <% end %>
   <%= component "stage" do %>
@@ -37,8 +35,8 @@
       <%= yield %>
     <% end %>
   <% end %>
-  <p id="notice" class="notice <%= notice ? "notice-show" : ""%>"><%= notice %></p>
-  <p id="alert" class="alert <%= alert ? "alert-show" : ""%>"><%= alert %></p>
+  <%= component "alert", id: "notice", message: notice %>
+  <%= component "alert", id: "alert", message: alert %>
   <!-- Call microlink to replace links with cards previews -->
   <script>
     document.addEventListener("turbolinks:load", function (event) {

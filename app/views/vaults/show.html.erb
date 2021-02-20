@@ -1,14 +1,15 @@
 <%= component "add" %>
-<%= link_to edit_vault_path(@vault), class: "vault-heading__link" do %>
+<%= component "heading" do %>
+
+<% end %>
+<%= link_to edit_vault_path(@vault), class: "" do %>
   <h1><%= @vault.name %></h1>
 <% end %>
 
 <% if @vault.links.count != 0 %>
   <%= render @vault.links.order(created_at: :desc) %>
 <% else %>
-  <%= component "null" do %>
-    <%= image_tag("items.png", class: "")%>
-  <% end %>
+  <%= component "null" %>
 <% end %>
 <hr>
-<%= link_to "Delete", @vault, method: :delete, data: { confirm: 'Are you sure?' }, class: "vault-heading__link" %>
+<%= link_to "Delete", @vault, method: :delete, data: { confirm: 'Are you sure?' }, class: "" %>

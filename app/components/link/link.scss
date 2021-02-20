@@ -1,3 +1,47 @@
 .link {
-  display: block;
+  display: flex;
+  align-items: center;
+  margin: system-spacing(sm) 0;
+  &__icon {
+    height: 30px;
+    width: 30px;
+    background: #000;
+    border-radius: system-border(radius);
+    margin-right: system-spacing(xs);
+  }
+  &__text {
+    line-height: 1;
+    flex: 1;
+  }
+  &__count {
+
+  }
+  &:nth-child(5n+1) {
+    .link__icon {
+      background: #e2cbae;
+    }
+  }
+  &:nth-child(5n+2) {
+   .link__icon {
+      background: #abcad3;
+    }
+  }
+  &:nth-child(5n+3) {
+    .link__icon {
+      background: #e9eedc;
+    }
+  }
+  &:nth-child(5n+4) {
+    .link__icon {
+      background: #a2b6ab;
+    }
+  }
+  &:nth-child(5n+5) {
+    .link__icon {
+      background: #d6ad7b;
+    }
+  }
+  &:hover {
+    text-decoration: none;
+  }
 }

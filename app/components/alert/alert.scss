@@ -8,7 +8,7 @@
 .system {
   &-alert {
     @include simple-ease(all);
-    background: system-color(primary);
+    background: system-color(teal);
     border-radius: system-border(radius);
     color: #fff;
     display: inline-block;
