@@ -21,6 +21,7 @@
           <%= vault.name %>
         <% end %>
       <% end %>
+      <br>
       <%= component "link", link: new_vault_path do %>
         New Collection...
       <% end %>
@@ -42,6 +43,31 @@
     document.addEventListener("turbolinks:load", function (event) {
       microlink('.item__preview')
     })
+    // Get the modal
+    var modal = document.getElementById("add_modal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("add_btn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("add__modal_close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
   </script>
 </body>
 </html>
