@@ -1,0 +1,3 @@
+<%= component "item", link: link.link do %>
+  <%= link_to vault_link_path(@vault, link.id), method: :delete, data: { confirm: "Are you sure?" }, class: "item__delete" do %>Delete<% end %>
+<% end %>

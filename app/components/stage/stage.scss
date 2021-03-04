@@ -1,0 +1,9 @@
+.stage {
+  padding: system-spacing();
+  position: relative;
+  flex: 1;
+  display: flex;
+  h1 {
+    margin-bottom: 1.5rem;
+  }
+}

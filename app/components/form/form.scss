@@ -1,0 +1,14 @@
+.form {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  input {
+    padding: system-spacing(sm) system-spacing(sm);
+    border: system-boarder();
+    width: 500px;
+  }
+  input[type=submit] {
+    display: none;
+  }
+}

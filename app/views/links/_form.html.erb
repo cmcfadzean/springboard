@@ -1,0 +1,4 @@
+<%= form_for([@vault, @vault.links.build]) do |f| %>
+  <%= f.text_field :link, placeholder: "New Link", class: "form-control" %>
+  <%= f.submit %>
+<% end %>
