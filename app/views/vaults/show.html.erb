@@ -1,11 +1,9 @@
 <%= component "add" %>
 <%= component "heading" do %>
-
+  <%= link_to edit_vault_path(@vault), class: "" do %>
+    <h1><%= @vault.name %></h1>
+  <% end %>
 <% end %>
-<%= link_to edit_vault_path(@vault), class: "" do %>
-  <h1><%= @vault.name %></h1>
-<% end %>
-
 <% if @vault.links.count != 0 %>
   <%= render @vault.links.order(created_at: :desc) %>
 <% else %>
