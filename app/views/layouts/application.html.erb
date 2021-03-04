@@ -21,10 +21,11 @@
           <%= vault.name %>
         <% end %>
       <% end %>
-      <br>
-      <%= component "link", link: new_vault_path do %>
-        New Collection...
-      <% end %>
+      <div class="link__new">
+        <%= component "link", link: new_vault_path do %>
+          New Collection...
+        <% end %>
+      </div>
     <% end %>
     <% if user_signed_in? %>
       <%= link_to current_user.email, edit_user_registration_path, class: "" %>
